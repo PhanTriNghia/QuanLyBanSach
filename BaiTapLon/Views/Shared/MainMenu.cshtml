@@ -1,0 +1,36 @@
+﻿@model List<Mood.EF2.Menu>
+@{
+    var listMoiNhat = (List<Mood.EF2.Sanpham>)ViewBag.Sanphamnew;
+    var listYeuThich = (List<Mood.EF2.Sanpham>)ViewBag.topHot;
+    var listAllProduct = (List<Mood.EF2.Sanpham>)ViewBag.getAllProduct;
+    var listNoiBat = (List<Mood.EF2.Sanpham>)ViewBag.NoiBat;
+    var listDeXuat = (List<Mood.EF2.Sanpham>)ViewBag.Deal;
+}
+
+<div class="site-navigation mr-auto d-none d-xl-block">
+    <ul class="nav">
+
+        <li class="nav-item"><a href="/Home/TrangChu" class="nav-link link-black-100 mx-2 px-0 py-3 font-weight-medium  border-primary border-width-2">Trang Chủ</a></li>
+
+        @foreach (var item in Model)
+        {
+            if (item.DisplayOrder == 1)
+            {
+                <li class="nav-item">
+                    <a href="/Product/ListProduct" class="nav-link link-black-100 mx-2 px-0 py-3 font-weight-medium  border-primary border-width-2">
+                
+                         @item.NameMenu
+                     </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item"><a href="@item.Link/" class="nav-link link-black-100 mx-2 px-0 py-3 font-weight-medium">@item.NameMenu</a></li>
+            }
+
+        }
+
+
+
+    </ul>
+</div>
